@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="QR Master logo">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#g)"/>
+  <rect x="120" y="120" width="272" height="272" rx="44" fill="#ffffff" fill-opacity="0.95"/>
+  <rect x="174" y="174" width="164" height="164" rx="24" fill="#0F172A"/>
+  <rect x="208" y="208" width="96" height="96" rx="16" fill="#ffffff"/>
+  <rect x="92" y="92" width="64" height="64" rx="16" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="356" y="92" width="64" height="64" rx="16" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="92" y="356" width="64" height="64" rx="16" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="356" y="356" width="64" height="64" rx="16" fill="#ffffff" fill-opacity="0.9"/>
+</svg>

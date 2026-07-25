@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QR Master is an offline-first PWA for scanning and generating QR codes instantly." />
+    <meta name="theme-color" content="#2563EB" />
+    <meta name="color-scheme" content="light dark" />
+    <title>QR Master</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <img src="./icons/logo.svg" alt="QR Master logo" class="brand-logo" />
+          <div>
+            <h1>QR Master</h1>
+            <p>Scan and Generate QR Codes Instantly</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="themeToggle" class="icon-button" aria-label="Toggle color theme">☀️</button>
+          <button id="installButton" class="secondary-btn hidden">Install App</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero card">
+          <div class="hero-copy">
+            <span class="pill">Offline-ready • Private • Fast</span>
+            <h2>Modern QR tools built for everyday moments.</h2>
+            <p>
+              Scan codes with your camera, generate codes from text or links, and keep everything local in your browser.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-scroll="scanner">Scan QR Code</button>
+              <button class="secondary-btn" data-scroll="generator">Generate QR Code</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="visual-card">
+              <div class="qr-ring"></div>
+              <p>Secure by design</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="features-grid">
+          <article class="feature-card">
+            <h3>Works Offline</h3>
+            <p>Install once and keep scanning and generating without needing a connection.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Secure & Private</h3>
+            <p>Everything stays in your browser. No tracking, no analytics, no data collection.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Fast Scanning</h3>
+            <p>Instant detection from camera or uploaded images with a modern, responsive UI.</p>
+          </article>
+          <article class="feature-card">
+            <h3>High Quality Downloads</h3>
+            <p>Download your QR codes as crisp PNG files whenever you need them.</p>
+          </article>
+        </section>
+
+        <section id="scanner" class="card section-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Scanner</p>
+              <h3>Scan QR Code</h3>
+            </div>
+            <span class="status-pill" id="scannerStatus">Ready to scan</span>
+          </div>
+
+          <div class="scanner-shell">
+            <video id="videoElement" autoplay playsinline muted></video>
+            <div class="scanner-overlay">Point your camera at a QR code</div>
+          </div>
+
+          <div class="button-row">
+            <button id="startCameraBtn" class="primary-btn">Start Camera</button>
+            <button id="switchCameraBtn" class="secondary-btn">Switch Camera</button>
+            <button id="stopCameraBtn" class="secondary-btn">Stop Camera</button>
+          </div>
+
+          <label class="upload-box" for="imageUpload">
+            <input id="imageUpload" type="file" accept="image/*" />
+            <span>Upload an image to scan</span>
+          </label>
+
+          <div id="resultCard" class="result-card hidden">
+            <div class="result-header">
+              <h4>Scan Result</h4>
+              <button id="copyResultBtn" class="secondary-btn">Copy</button>
+            </div>
+            <p id="resultText" class="result-text">No scan yet</p>
+            <div class="result-actions">
+              <button id="openLinkBtn" class="primary-btn hidden">Open Link</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="generator" class="card section-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Generator</p>
+              <h3>Create QR Code</h3>
+            </div>
+            <span class="status-pill" id="generatorStatus">Ready to generate</span>
+          </div>
+
+          <div class="generator-layout">
+            <div class="generator-form">
+              <label for="contentInput">Content</label>
+              <textarea id="contentInput" rows="6" placeholder="Enter text, a URL, a phone number, an email, Wi-Fi credentials, or any custom content."></textarea>
+              <div class="button-row">
+                <button id="generateBtn" class="primary-btn">Generate</button>
+                <button id="downloadBtn" class="secondary-btn">Download PNG</button>
+              </div>
+              <div class="button-row compact">
+                <button id="copyContentBtn" class="secondary-btn">Copy Content</button>
+                <button id="clearBtn" class="secondary-btn">Clear</button>
+              </div>
+            </div>
+            <div class="generator-preview">
+              <canvas id="qrCanvas" width="260" height="260"></canvas>
+              <p class="preview-tip">A polished QR code appears here instantly.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
