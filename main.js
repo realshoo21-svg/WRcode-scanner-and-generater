@@ -1,6 +1,3 @@
-import './styles.css';
-import jsQR from 'jsqr';
-import QRCode from 'qrcode';
 
 const video = document.getElementById('camera-video');
 const canvas = document.getElementById('scanner-canvas');
