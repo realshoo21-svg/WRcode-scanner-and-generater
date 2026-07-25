@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="QR Master by Shoo is a premium QR scanner and generator app built for speed, privacy, and effortless use." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>QR Master by Shoo</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar glass-panel">
+        <a class="brand" href="#home">
+          <span class="brand-mark"></span>
+          <span>QR Master by Shoo</span>
+        </a>
+        <nav class="topnav">
+          <a href="#scanner">Scanner</a>
+          <a href="#generator">Generator</a>
+        </nav>
+      </header>
+
+      <main id="home">
+        <section class="hero glass-panel">
+          <div class="hero-copy">
+            <div class="eyebrow">Premium QR Experience</div>
+            <h1>Scan and Generate QR Codes Instantly</h1>
+            <p>Secure, fast, offline and privacy focused for everyday use on Android, iPhone, tablets, and desktops.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#scanner">Scan QR Code</a>
+              <a class="btn btn-secondary" href="#generator">Generate QR Code</a>
+            </div>
+            <div class="hero-badges">
+              <span>Offline Ready</span>
+              <span>Beginner Friendly</span>
+              <span>Instant Results</span>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-card">
+              <div class="visual-qr"></div>
+              <div class="visual-pill"></div>
+              <div class="visual-pill subtle"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="feature-grid" aria-label="Features">
+          <article class="feature-card glass-panel">
+            <h3>Fast Scanning</h3>
+            <p>Use your camera or upload an image to read QR codes in moments.</p>
+          </article>
+          <article class="feature-card glass-panel">
+            <h3>QR Generation</h3>
+            <p>Create polished QR codes for links, notes, contact details, and more.</p>
+          </article>
+          <article class="feature-card glass-panel">
+            <h3>Offline Ready</h3>
+            <p>Installed as a PWA, QR Master stays handy even without a live connection.</p>
+          </article>
+          <article class="feature-card glass-panel">
+            <h3>Secure & Private</h3>
+            <p>Your scans stay on-device and your content remains under your control.</p>
+          </article>
+        </section>
+
+        <section id="scanner" class="content-section glass-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Scanner</p>
+              <h2>Scan a QR code with ease</h2>
+            </div>
+            <span class="status-pill" id="scanner-status">Camera ready</span>
+          </div>
+
+          <div class="scanner-layout">
+            <div class="camera-shell">
+              <video id="camera-video" autoplay playsinline muted></video>
+              <canvas id="scanner-canvas"></canvas>
+              <div class="overlay-frame"></div>
+            </div>
+            <div class="controls-card">
+              <div class="button-row">
+                <button class="btn btn-primary" id="start-camera">Start Camera</button>
+                <button class="btn btn-secondary" id="switch-camera">Switch Camera</button>
+              </div>
+              <div class="button-row">
+                <button class="btn btn-secondary" id="stop-camera">Stop Camera</button>
+                <label class="btn btn-secondary upload-btn" for="upload-image">Upload Image</label>
+                <input id="upload-image" type="file" accept="image/*" hidden />
+              </div>
+              <div class="result-card">
+                <h3>Scan Result</h3>
+                <p id="scan-result">No code detected yet. Point the camera at a QR code to begin.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="generator" class="content-section glass-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Generator</p>
+              <h2>Create beautiful QR codes</h2>
+            </div>
+          </div>
+
+          <div class="generator-layout">
+            <div class="generator-panel">
+              <label class="field-label" for="qr-text">Enter a link or message</label>
+              <textarea id="qr-text" rows="6" placeholder="https://example.com or any text you want to encode"></textarea>
+              <div class="button-row">
+                <button class="btn btn-primary" id="generate-qr">Generate</button>
+                <button class="btn btn-secondary" id="download-qr">Download PNG</button>
+              </div>
+              <div class="button-row">
+                <button class="btn btn-secondary" id="copy-content">Copy Content</button>
+                <button class="btn btn-secondary" id="clear-input">Clear</button>
+              </div>
+            </div>
+            <div class="preview-panel">
+              <canvas id="qr-preview" width="260" height="260"></canvas>
+              <p class="preview-caption">Live preview updates instantly for your content.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer glass-panel">
+        <p>QR Master by Shoo</p>
+        <p>© 2026 All rights reserved.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
