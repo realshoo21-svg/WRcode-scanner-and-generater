@@ -376,6 +376,12 @@ textarea {
 .hero-image:hover{
     transform:scale(1.02);
 }
+  .footer{
+    text-align:center;
+    padding:30px 20px;
+    opacity:.8;
+    font-size:14px;
+}
 
   .button-row {
     flex-direction: column;
