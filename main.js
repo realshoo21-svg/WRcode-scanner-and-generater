@@ -170,3 +170,4 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 renderQr('QR Master by Shoo');
 setStatus('Camera ready', 'info');
+
