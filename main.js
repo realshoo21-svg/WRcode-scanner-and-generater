@@ -170,4 +170,24 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 renderQr('QR Master by Shoo');
 setStatus('Camera ready', 'info');
+let deferredPrompt;
+const installBtn = document.getElementById('install-btn');
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  if (installBtn) {
+    installBtn.style.display = 'inline-block';
+  }
+});
+
+installBtn?.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+
+  deferredPrompt = null;
+  installBtn.style.display = 'none';
+});
